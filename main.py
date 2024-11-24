@@ -96,14 +96,14 @@ if st.button("Calcular"):
 
     MME = altura_m * (0.00744*(PBC**2) + 0.00088*(PMC**2) + 0.00441*(PGC**2)) + 2.4*sexo - 0.048*edad + etnia + 7.8
 
-    masa_osea_kg = 3.02*((altura_m**2) * DM * DF * 400)
+    masa_osea_kg = 3.02*((altura_m**2) * DM/100 * DF/100 * 400)
     
     X = (pli_tricipital + pli_subescapular + pli_supraespinal) * 170 / (altura_cm)
     endomorfia = -0.7182 + 0.1451*X - 0.00067*(X**2) + 0.0000014*(X**3)
     
     CAH = per_brazo_contr - pli_tricipital/10
-    CCG = per_gemelo - pli_gemelar/10
-    mesomorfia = (0.858*DH + 0.601*DF*100 + 0.188*CAH + 0.161*CCG) - (0.131*altura_cm) + 4.5
+    CCG = per_gemelo - (pli_gemelar/10.)
+    mesomorfia = (0.858*DH + 0.601*DF + 0.188*CAH + 0.161*CCG) - (0.131*altura_cm) + 4.5
   
     HWR = (altura_cm)/peso**(1/3)
 
