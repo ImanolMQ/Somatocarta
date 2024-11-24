@@ -1,6 +1,12 @@
 import streamlit as st
 import math
 
+st.set_page_config(
+    page_title="Calculadora Somatocarta",
+    page_icon="📊",  # Puedes usar un emoji o ícono personalizado
+    layout="wide"  # Configura el diseño para ocupar toda la anchura
+)
+
 def calcular_ectomorfia(HWR):
   if HWR >= 40.75: return 0.732*HWR - 28.58
   if HWR < 40.75 and HWR > 38.25: return 0.463*HWR - 17.63
