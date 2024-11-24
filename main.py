@@ -28,39 +28,60 @@ st.title("Calculadora Somatocarta")
 col1, col2 = st.columns(2)
 # Entrada de medidas
 with col1:
-  altura_cm = st.number_input("Altura (cm):", value=0.0, step=0.1, format="%.2f")
-  altura_m = altura_cm / 100. if altura_cm else ""
-  peso = st.number_input("Peso (kg):", value=0.0, step=0.1, format="%.2f")
-  
-  st.markdown("Medidas de los pliegues (mm)")
-  pli_tricipital = st.number_input("Pliegue Tricipital:", value=0.0, step=0.1, format="%.2f")
-  pli_subescapular = st.number_input("Pliegue Subescapular:", value=0.0, step=0.1, format="%.2f")
-  pli_biceps = st.number_input("Pliegue Biceps:", value=0.0, step=0.1, format="%.2f")
-  pli_ileocrestal = st.number_input("Pliegue Ileocrestal:", value=0.0, step=0.1, format="%.2f")
-  pli_supraespinal = st.number_input("Pliegue Supraespinal:", value=0.0, step=0.1, format="%.2f")
-  pli_abddominal = st.number_input("Pliegue Abdominal:", value=0.0, step=0.1, format="%.2f")
-  pli_muslo = st.number_input("Pliegue Muslo:", value=0.0, step=0.1, format="%.2f")
-  pli_gemelar = st.number_input("Pliegue Gemelar:", value=0.0, step=0.1, format="%.2f")
-  
-  st.markdown("Medidas de los perimetros (cm)")
-  per_brazo_relaj = st.number_input("Perimetro Brazo relajado:", value=0.0, step=0.1, format="%.2f")
-  per_brazo_contr = st.number_input("Perimetro Brazo contraído:", value=0.0, step=0.1, format="%.2f")
-  per_cintura = st.number_input("Perimetro Cintura:", value=0.0, step=0.1, format="%.2f")
-  per_cadera = st.number_input("Perimetro Cadera:", value=0.0, step=0.1, format="%.2f")
-  per_gemelo = st.number_input("Perimetro Gemelo:", value=0.0, step=0.1, format="%.2f")
-  per_muslo = st.number_input("Perimetro Muslo:", value=0.0, step=0.1, format="%.2f")
-  
-  st.markdown("Medidas de los diametros (cm)")
-  DH = st.number_input("Diametro óseo biepicondileo del húmero:", value=0.0, step=0.1, format="%.2f")
-  DF = st.number_input("Diametro óseo biepicondileo del fémur:", value=0.0, step=0.1, format="%.2f")
-  DM = st.number_input("Diametro muñeca:", value=0.0, step=0.1, format="%.2f")
-
-  st.markdown("Datos adicionales:")
-  etnia = st.selectbox("Etnia:", ["Asiatic@", "Afro-American@", "Caucasic@ o Hispán@"])
-  etnia = etnias[etnia]
-  sexo = st.selectbox("Sexo:", ["Mujer", "Hombre"])
-  sexo = 0. if sexo == "Mujer" else 1.
-  edad = st.number_input("Edad:", value=0, step=1)
+    
+    row1, row2, row3, row4 = st.rows(4)
+    
+    with row1:
+        altura_cm = st.number_input("Altura (cm):", value=0.0, step=0.1, format="%.2f")
+        altura_m = altura_cm / 100. if altura_cm else ""
+        peso = st.number_input("Peso (kg):", value=0.0, step=0.1, format="%.2f")
+        etnia = st.selectbox("Etnia:", ["Asiatic@", "Afro-American@", "Caucasic@ o Hispán@"])
+        etnia = etnias[etnia]
+        sexo = st.selectbox("Sexo:", ["Mujer", "Hombre"])
+        sexo = 0. if sexo == "Mujer" else 1.
+        edad = st.number_input("Edad:", value=0, step=1)
+        
+    with row2:
+    
+        st.markdown("Medidas de los pliegues (mm)")
+        col11, col12, col13 = st.columns(3)
+        with col11:
+            pli_tricipital = st.number_input("Pliegue Tricipital:", value=0.0, step=0.1, format="%.2f")
+            pli_subescapular = st.number_input("Pliegue Subescapular:", value=0.0, step=0.1, format="%.2f")
+            pli_biceps = st.number_input("Pliegue Biceps:", value=0.0, step=0.1, format="%.2f")
+        with col12:  
+            pli_ileocrestal = st.number_input("Pliegue Ileocrestal:", value=0.0, step=0.1, format="%.2f")
+            pli_supraespinal = st.number_input("Pliegue Supraespinal:", value=0.0, step=0.1, format="%.2f")
+            pli_abddominal = st.number_input("Pliegue Abdominal:", value=0.0, step=0.1, format="%.2f")
+        with col13:   
+            pli_muslo = st.number_input("Pliegue Muslo:", value=0.0, step=0.1, format="%.2f")
+            pli_gemelar = st.number_input("Pliegue Gemelar:", value=0.0, step=0.1, format="%.2f")
+    
+    with row3:
+        st.markdown("Medidas de los perimetros (cm)")
+        col21, col22, col23 = st.columns(3)
+        with col21:
+            per_brazo_relaj = st.number_input("Perimetro Brazo relajado:", value=0.0, step=0.1, format="%.2f")
+            per_brazo_contr = st.number_input("Perimetro Brazo contraído:", value=0.0, step=0.1, format="%.2f")
+            per_cintura = st.number_input("Perimetro Cintura:", value=0.0, step=0.1, format="%.2f")
+        with col22:   
+            per_cadera = st.number_input("Perimetro Cadera:", value=0.0, step=0.1, format="%.2f")
+            per_gemelo = st.number_input("Perimetro Gemelo:", value=0.0, step=0.1, format="%.2f")
+            per_muslo = st.number_input("Perimetro Muslo:", value=0.0, step=0.1, format="%.2f")
+        with col23:
+            pass
+        
+    with row4:
+        st.markdown("Medidas de los diametros (cm)")
+        col31, col32, col33 = st.columns(3)
+        with col31:
+            DH = st.number_input("Diametro óseo biepicondileo del húmero:", value=0.0, step=0.1, format="%.2f")
+            DF = st.number_input("Diametro óseo biepicondileo del fémur:", value=0.0, step=0.1, format="%.2f")
+            DM = st.number_input("Diametro muñeca:", value=0.0, step=0.1, format="%.2f")
+        with col32:
+            pass
+        with col33:
+            pass
 
   # Botón para calcular
 if st.button("Calcular"):
