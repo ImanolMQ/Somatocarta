@@ -15,11 +15,11 @@ def calcular_ectomorfia(HWR):
 
 pi = math.pi
 
-endomorfia = 0
-mesomorfia = 0
-ectomorfia = 0
-x = 0
-y = 0
+endomorfia = ""
+mesomorfia = ""
+ectomorfia = ""
+x = ""
+y = ""
 
 etnias = {"Asiatic@":-2., "Afro-American@":1.1, "Caucasic@ o Hispán@":0.}
 
@@ -113,10 +113,18 @@ if st.button("Calcular"):
     y = 2*mesomorfia - (endomorfia + ectomorfia)
 
 with col2:
-    st.write(f"Endomorfia: {endomorfia:.2f}")
-    st.write(f"Mesomorfia: {mesomorfia:.2f}")
-    st.write(f"Ectomorfia: {ectomorfia:.2f}")
-    st.write(f"Coordenadas Somatocarta: X = {x:.2f}, Y = {y:.2f}")
+    if endomorfia == "" or mesomorfia == "" or ectomorfia == "" or x == "" or y == "":
+        st.write("Endomorfia: NONE")
+        st.write("Mesomorfia: NONE")
+        st.write("Ectomorfia: NONE")
+        st.write("Coordenadas Somatocarta: X = NONE, Y = NONE")
+        
+    else:
+        st.write(f"Endomorfia: {endomorfia:.2f}")
+        st.write(f"Mesomorfia: {mesomorfia:.2f}")
+        st.write(f"Ectomorfia: {ectomorfia:.2f}")
+        st.write(f"Coordenadas Somatocarta: X = {x:.2f}, Y = {y:.2f}")
+    
 
     # Crear figura
     fig = go.Figure()
@@ -130,8 +138,8 @@ with col2:
             dtick=1,             # Intervalos de 1 en 1
             mirror=True,         # Eje se refleja arriba y abajo
             showline=True,       # Mostrar línea del eje
-            linecolor='black',   # Color de la línea del eje
-            linewidth=2          # Grosor de la línea
+            linecolor='white',   # Color de la línea del eje
+            linewidth=1          # Grosor de la línea
         ),
         yaxis=dict(
             range=[-8, 16],      # Rango de -8 a 16
@@ -140,18 +148,37 @@ with col2:
             dtick=1,             # Intervalos de 1 en 1
             mirror=True,         # Eje se refleja a la izquierda y derecha
             showline=True,       # Mostrar línea del eje
-            linecolor='black',   # Color de la línea del eje
-            linewidth=2          # Grosor de la línea
+            linecolor='white',   # Color de la línea del eje
+            linewidth=1          # Grosor de la línea
         ),
-        plot_bgcolor='white',     # Fondo blanco para el gráfico
+        plot_bgcolor='rgba(0,0,0,0)',    # Fondo transparente para el gráfico
     )
     
-    # Agregar un ejemplo de traza (opcional)
-    fig.add_trace(go.Scatter(
-        x=[-8, -4, 0, 4, 8], 
-        y=[-8, 0, 8, 12, 16], 
-        mode='lines+markers',
-        name='Ejemplo'
-    ))
+    if not (x == "" or y == ""):
+        fig.add_trace(go.Scatter(
+        x=[x, x], 
+        y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
+        mode='lines',
+        line=dict(color='blue', dash='dash'),
+        name=f'Línea vertical (x={x})'
+        ))
+        
+        # Agregar línea horizontal en y = y_value
+        fig.add_trace(go.Scatter(
+            x=[-8, 8],  # Desde el rango mínimo hasta el máximo en x
+            y=[y, y],
+            mode='lines',
+            line=dict(color='red', dash='dash'),
+            name=f'Línea horizontal (y={y})'
+        ))
+        
+        # Agregar punto en (x_value, y_value)
+        fig.add_trace(go.Scatter(
+            x=[x],
+            y=[y],
+            mode='markers',
+            marker=dict(color='green', size=10),
+            name=f'Punto ({x}, {y})'
+        ))
 
     st.plotly_chart(fig)
