@@ -28,10 +28,8 @@ st.title("Calculadora Somatocarta")
 col1, col2 = st.columns(2)
 # Entrada de medidas
 with col1:
-    
-    row1, row2, row3, row4 = st.rows(4)
-    
-    with row1:
+
+    with st.container():
         altura_cm = st.number_input("Altura (cm):", value=0.0, step=0.1, format="%.2f")
         altura_m = altura_cm / 100. if altura_cm else ""
         peso = st.number_input("Peso (kg):", value=0.0, step=0.1, format="%.2f")
@@ -41,8 +39,7 @@ with col1:
         sexo = 0. if sexo == "Mujer" else 1.
         edad = st.number_input("Edad:", value=0, step=1)
         
-    with row2:
-    
+    with st.container():
         st.markdown("Medidas de los pliegues (mm)")
         col11, col12, col13 = st.columns(3)
         with col11:
@@ -57,7 +54,7 @@ with col1:
             pli_muslo = st.number_input("Pliegue Muslo:", value=0.0, step=0.1, format="%.2f")
             pli_gemelar = st.number_input("Pliegue Gemelar:", value=0.0, step=0.1, format="%.2f")
     
-    with row3:
+    with st.container():
         st.markdown("Medidas de los perimetros (cm)")
         col21, col22, col23 = st.columns(3)
         with col21:
@@ -71,7 +68,7 @@ with col1:
         with col23:
             pass
         
-    with row4:
+    with st.container():
         st.markdown("Medidas de los diametros (cm)")
         col31, col32, col33 = st.columns(3)
         with col31:
