@@ -205,7 +205,7 @@ with col2:
     name=f'Línea vertical (x={x})'
     ))
     
-    x_values = [-8, 8]  # Rango de x de -8 a 8 para la línea
+    x_values = [x for x in range(-8, 9)]
     y_values = [x + 1 for x in x_values]  # Para una línea a 45º, y = x + 1
     fig.add_trace(go.Scatter(
         x=x_values, 
@@ -215,7 +215,7 @@ with col2:
         name="Línea a 45º desplazada"
     ))
     
-    x_values = [-8, 8]  # Rango de x de -8 a 8 para la línea
+    x_values = [x for x in range(-8, 9)]
     y_values = [x - 1 for x in x_values]
     fig.add_trace(go.Scatter(
         x=x_values, 
@@ -225,24 +225,24 @@ with col2:
         name="Línea a 45º desplazada"
     ))
     
-    x_values = [8, -8]  # Rango de x de 8 a -8 para la línea
-    y_values = [x + 1 for x in x_values]
-    fig.add_trace(go.Scatter(
-        x=x_values, 
-        y=y_values, 
-        mode='lines',
-        line=dict(color='blue', width=2, dash='dash'),
-        name="Línea a 45º desplazada"
-    ))
+    # x_values = [x for x in range(8, -9, -1)]
+    # y_values = [x + 1 for x in x_values]
+    # fig.add_trace(go.Scatter(
+    #     x=x_values, 
+    #     y=y_values, 
+    #     mode='lines',
+    #     line=dict(color='blue', width=2, dash='dash'),
+    #     name="Línea a 45º desplazada"
+    # ))
     
-    x_values = [8, -8]  # Rango de x de 8 a -8 para la línea
-    y_values = [x - 1 for x in x_values]  
-    fig.add_trace(go.Scatter(
-        x=x_values, 
-        y=y_values, 
-        mode='lines',
-        line=dict(color='blue', width=2, dash='dash'),
-        name="Línea a 45º desplazada"
-    ))
+    # x_values = [x for x in range(8, -9, -1)]
+    # y_values = [x - 1 for x in x_values]  
+    # fig.add_trace(go.Scatter(
+    #     x=x_values, 
+    #     y=y_values, 
+    #     mode='lines',
+    #     line=dict(color='blue', width=2, dash='dash'),
+    #     name="Línea a 45º desplazada"
+    # ))
 
     st.plotly_chart(fig)
