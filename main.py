@@ -30,14 +30,19 @@ col1, col2 = st.columns(2)
 with col1:
 
     with st.container():
-        altura_cm = st.number_input("Altura (cm):", value=0.0, step=0.1, format="%.2f")
-        altura_m = altura_cm / 100. if altura_cm else ""
-        peso = st.number_input("Peso (kg):", value=0.0, step=0.1, format="%.2f")
-        etnia = st.selectbox("Etnia:", ["Asiatic@", "Afro-American@", "Caucasic@ o Hispán@"])
-        etnia = etnias[etnia]
-        sexo = st.selectbox("Sexo:", ["Mujer", "Hombre"])
-        sexo = 0. if sexo == "Mujer" else 1.
-        edad = st.number_input("Edad:", value=0, step=1)
+        col01, col02, col03 = st.columns(3)
+        with col01:
+            altura_cm = st.number_input("Altura (cm):", value=0.0, step=0.1, format="%.2f")
+            altura_m = altura_cm / 100. if altura_cm else ""
+            peso = st.number_input("Peso (kg):", value=0.0, step=0.1, format="%.2f")
+            etnia = st.selectbox("Etnia:", ["Asiatic@", "Afro-American@", "Caucasic@ o Hispán@"])
+            etnia = etnias[etnia]
+        with col02:
+            sexo = st.selectbox("Sexo:", ["Mujer", "Hombre"])
+            sexo = 0. if sexo == "Mujer" else 1.
+            edad = st.number_input("Edad:", value=0, step=1)
+        with col03:
+            pass
         
     with st.container():
         st.markdown("Medidas de los pliegues (mm)")
