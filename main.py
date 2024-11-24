@@ -181,22 +181,20 @@ with col2:
             name=f'Punto ({x}, {y})'
         ))
         
-    # Agregar la figura central (elipse)
-    fig.update_layout(
-        shapes=[
-            # Elipse que representa el rango "normal" o "sano"
-            {
-                'type': 'ellipse',
-                'xref': 'x', 'yref': 'y',  # Relación con los ejes X y Y
-                'x0': -4, 'y0': -4,  # Esquina superior izquierda
-                'x1': 4, 'y1': 12,   # Esquina inferior derecha
-                'line': {
-                    'color': 'rgba(0, 0, 0, 0.5)',  # Color de la línea
-                    'width': 2
-                    },
-                'fillcolor': 'rgba(0, 255, 0, 0.2)',  # Color del relleno
-                }
-            ]
-        )
+    fig.add_trace(go.Scatter(
+    x=[-1, -1], 
+    y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
+    mode='lines',
+    line=dict(color='white', dash='dash'),
+    name=f'Línea vertical (x={x})'
+    ))
+    
+    fig.add_trace(go.Scatter(
+    x=[1, 1], 
+    y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
+    mode='lines',
+    line=dict(color='white', dash='dash'),
+    name=f'Línea vertical (x={x})'
+    ))
 
     st.plotly_chart(fig)
