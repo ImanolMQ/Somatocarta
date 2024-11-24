@@ -185,7 +185,7 @@ with col2:
     x=[-1, -1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white', dash='line'),
+    line=dict(color='white', dash='solid'),
     name=f'Línea vertical (x={x})'
     ))
     
@@ -193,7 +193,7 @@ with col2:
     x=[1, 1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white', dash='line'),
+    line=dict(color='white', dash='solid'),
     name=f'Línea vertical (x={x})'
     ))
     
@@ -201,7 +201,7 @@ with col2:
     x=[1, 1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white', dash='line'),
+    line=dict(color='white', dash='solid'),
     name=f'Línea vertical (x={x})'
     ))
     
