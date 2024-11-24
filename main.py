@@ -94,12 +94,12 @@ if st.button("Calcular"):
     PMC = per_muslo - pi*pli_muslo/10
     PGC = per_gemelo - pi*pli_gemelar/10
 
-    MME = altura_m * (0.00744*PBC**2 + 0.00088*PMC**2 + 0.00441*PGC**2) + 2.4*sexo - 0.048*edad + etnia + 7.8
+    MME = altura_m * (0.00744*(PBC**2) + 0.00088*(PMC**2) + 0.00441*(PGC**2)) + 2.4*sexo - 0.048*edad + etnia + 7.8
 
-    masa_osea_kg = 3.02*(altura_m**2 * DM * DF * 400)
+    masa_osea_kg = 3.02*((altura_m**2) * DM * DF * 400)
     
     X = (pli_tricipital + pli_subescapular + pli_supraespinal) * 170 / (altura_cm)
-    endomorfia = -0.7182 + 0.1451*X - 0.00067*X**2 + 0.0000014*X**3
+    endomorfia = -0.7182 + 0.1451*X - 0.00067*(X**2) + 0.0000014*(X**3)
     
     CAH = per_brazo_contr - pli_tricipital/10
     CCG = per_gemelo - pli_gemelar/10
