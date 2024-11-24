@@ -3,16 +3,16 @@ import math
 
 def calcular_ectomorfia(ectomorfia, HWR):
   if HWR >= 40.75: return 0.732*HWR - 28.58
-  if HWR < 40.75 and HWR > 38.25: return 0.463*HWR-17.63
-  if HWR <= 38.25: return ectomorfia = 0.1
+  if HWR < 40.75 and HWR > 38.25: return 0.463*HWR - 17.63
+  if HWR <= 38.25: return 0.1
   
   return "error"
 
 pi = math.pi
 
-endomorfia = ""
-mesomorfia = ""
-ectomorfia = ""
+endomorfia = 0
+mesomorfia = 0
+ectomorfia = 0
 
 # Título de la aplicación
 st.title("Calculadora Somatocarta")
@@ -29,7 +29,7 @@ with col1:
   pli_subescapular = st.number_input("Subescapular:", value=0.0, step=0.1, format="%.2f")
   pli_biceps = st.number_input("Biceps:", value=0.0, step=0.1, format="%.2f")
   pli_ileocrestal = st.number_input("Ileocrestal:", value=0.0, step=0.1, format="%.2f")
-  pli_suprespinal = st.number_input("Suprespinal:", value=0.0, step=0.1, format="%.2f")
+  pli_supraespinal = st.number_input("Supraespinal:", value=0.0, step=0.1, format="%.2f")
   pli_abddominal = st.number_input("Abdominal:", value=0.0, step=0.1, format="%.2f")
   pli_muslo = st.number_input("Muslo:", value=0.0, step=0.1, format="%.2f")
   pli_gemelar = st.number_input("Gemelar:", value=0.0, step=0.1, format="%.2f")
@@ -50,24 +50,25 @@ with col1:
   st.markdown("Datos adicionales:")
   etnia = st.selectbox("Etnia del paciente:", ["Asiatic@", "Afro-American@", "Caucasic@ o Hispán@"])
   sexo = st.selectbox("Sexo del paciente:", ["Mujer", "Hombre"])
+  edad = st.number_input("Muslo:", value=0, step=1)
 
   # Botón para calcular
 if st.button("Calcular"):
     #comprobar_datos()
   
-    PBC = per_brazo_relajado - pi*pli_triceps/10
+    PBC = per_brazo_relaj - pi*pli_tricipital/10
     PMC = per_muslo - pi*pli_muslo/10
-    PGC = per_gemelo - pi*pli_pierna/10
+    PGC = per_gemelo - pi*pli_gemelar/10
 
     MME = altura_m * (0.00744*PBC^2 + 0.00088*PMC^2 + 0.00441*PGC^2) + 2.4*sexo - 0.048*edad + etnia + 7.8
 
     masa_osea_kg = 3.02*(altura_m^2 * DM * DF * 400)
     
-    X = (pli_triceps + pli_subescapular + pli_supraespinal) * 170 / (altura_cm)
+    X = (pli_tricipital + pli_subescapular + pli_supraespinal) * 170 / (altura_cm)
     endomorfia <- -0.7182 + 0.1451*X - 0.00067*X^2 + 0.0000014*X^3
     
-    CAH = per_brazo_contraido - pli_triceps/10
-    CCG = per_gemelo - pli_pierna/10
+    CAH = per_brazo_contr - pli_tricipital/10
+    CCG = per_gemelo - pli_gemelar/10
     mesomorfia <- (0.858*DH + 0.601*DF*100 + 0.188*CAH + 0.161*CCG) - (0.131*altura_cm) + 4.5
   
     HWR = (altura_cm)/peso^(1/3)
