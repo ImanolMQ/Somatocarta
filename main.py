@@ -11,6 +11,8 @@ pi = math.pi
 endomorfia = 0
 mesomorfia = 0
 ectomorfia = 0
+x = 0
+y = 0
 
 etnias = {"Asiatic@":-2., "Afro-American@":1.1, "Caucasic@ o Hispán@":0.}
 
