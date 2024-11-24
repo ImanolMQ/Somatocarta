@@ -1,5 +1,6 @@
 import streamlit as st
 import math
+import plotly.graph_objects as go
 
 st.set_page_config(
     page_title="Calculadora Somatocarta",
@@ -116,3 +117,41 @@ with col2:
     st.write(f"Mesomorfia: {mesomorfia:.2f}")
     st.write(f"Ectomorfia: {ectomorfia:.2f}")
     st.write(f"Coordenadas Somatocarta: X = {x:.2f}, Y = {y:.2f}")
+
+    # Crear figura
+    fig = go.Figure()
+    
+    # Configurar el layout para los ejes
+    fig.update_layout(
+        xaxis=dict(
+            range=[-8, 8],       # Rango de -8 a 8
+            tickmode='linear',   # Marcas de ticks en modo lineal
+            tick0=-8,            # Primer tick en -8
+            dtick=1,             # Intervalos de 1 en 1
+            mirror=True,         # Eje se refleja arriba y abajo
+            showline=True,       # Mostrar línea del eje
+            linecolor='black',   # Color de la línea del eje
+            linewidth=2          # Grosor de la línea
+        ),
+        yaxis=dict(
+            range=[-8, 16],      # Rango de -8 a 16
+            tickmode='linear',   # Marcas de ticks en modo lineal
+            tick0=-8,            # Primer tick en -8
+            dtick=1,             # Intervalos de 1 en 1
+            mirror=True,         # Eje se refleja a la izquierda y derecha
+            showline=True,       # Mostrar línea del eje
+            linecolor='black',   # Color de la línea del eje
+            linewidth=2          # Grosor de la línea
+        ),
+        plot_bgcolor='white',     # Fondo blanco para el gráfico
+    )
+    
+    # Agregar un ejemplo de traza (opcional)
+    fig.add_trace(go.Scatter(
+        x=[-8, -4, 0, 4, 8], 
+        y=[-8, 0, 8, 12, 16], 
+        mode='lines+markers',
+        name='Ejemplo'
+    ))
+
+    st.plotly_chart(fig)
