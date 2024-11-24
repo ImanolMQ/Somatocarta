@@ -185,7 +185,7 @@ with col2:
     x=[-1, -1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white'),
+    line=dict(color='white', dash='dash'),
     name=f'Línea vertical (x={x})'
     ))
     
@@ -193,7 +193,7 @@ with col2:
     x=[1, 1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white'),
+    line=dict(color='white', dash='dash'),
     name=f'Línea vertical (x={x})'
     ))
     
@@ -201,7 +201,7 @@ with col2:
     x=[1, 1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white'),
+    line=dict(color='white', dash='dash'),
     name=f'Línea vertical (x={x})'
     ))
     
@@ -211,7 +211,7 @@ with col2:
         x=x_values, 
         y=y_values, 
         mode='lines',
-        line=dict(color='blue', width=2),
+        line=dict(color='blue', width=2, dash='dash'),
         name="Línea a 45º desplazada"
     ))
     
@@ -221,7 +221,7 @@ with col2:
         x=x_values, 
         y=y_values, 
         mode='lines',
-        line=dict(color='blue', width=2),
+        line=dict(color='blue', width=2, dash='dash'),
         name="Línea a 45º desplazada"
     ))
     
@@ -231,7 +231,7 @@ with col2:
         x=x_values, 
         y=y_values, 
         mode='lines',
-        line=dict(color='blue', width=2),
+        line=dict(color='blue', width=2, dash='dash'),
         name="Línea a 45º desplazada"
     ))
     
@@ -241,7 +241,7 @@ with col2:
         x=x_values, 
         y=y_values, 
         mode='lines',
-        line=dict(color='blue', width=2),
+        line=dict(color='blue', width=2, dash='dash'),
         name="Línea a 45º desplazada"
     ))
 
