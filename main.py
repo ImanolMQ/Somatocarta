@@ -193,10 +193,10 @@ with col2:
                 'line': {
                     'color': 'rgba(0, 0, 0, 0.5)',  # Color de la línea
                     'width': 2
-                },
+                    },
                 'fillcolor': 'rgba(0, 255, 0, 0.2)',  # Color del relleno
-            }
-        ]
-    )
+                }
+            ]
+        )
 
     st.plotly_chart(fig)
