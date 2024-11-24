@@ -185,7 +185,7 @@ with col2:
     x=[-1, -1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white', dash='dash'),
+    line=dict(color='white', dash='line'),
     name=f'Línea vertical (x={x})'
     ))
     
@@ -193,8 +193,56 @@ with col2:
     x=[1, 1], 
     y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
     mode='lines',
-    line=dict(color='white', dash='dash'),
+    line=dict(color='white', dash='line'),
     name=f'Línea vertical (x={x})'
+    ))
+    
+    fig.add_trace(go.Scatter(
+    x=[1, 1], 
+    y=[-8, 16],  # Desde el rango mínimo hasta el máximo en y
+    mode='lines',
+    line=dict(color='white', dash='line'),
+    name=f'Línea vertical (x={x})'
+    ))
+    
+    x_values = [-8, 8]  # Rango de x de -8 a 8 para la línea
+    y_values = [x + 1 for x in x_values]  # Para una línea a 45º, y = x + 1
+    fig.add_trace(go.Scatter(
+        x=x_values, 
+        y=y_values, 
+        mode='lines',
+        line=dict(color='blue', width=2, dash='solid'),
+        name="Línea a 45º desplazada"
+    ))
+    
+    x_values = [-8, 8]  # Rango de x de -8 a 8 para la línea
+    y_values = [x - 1 for x in x_values]
+    fig.add_trace(go.Scatter(
+        x=x_values, 
+        y=y_values, 
+        mode='lines',
+        line=dict(color='blue', width=2, dash='solid'),
+        name="Línea a 45º desplazada"
+    ))
+    
+    x_values = [8, -8]  # Rango de x de 8 a -8 para la línea
+    y_values = [x + 1 for x in x_values]
+    fig.add_trace(go.Scatter(
+        x=x_values, 
+        y=y_values, 
+        mode='lines',
+        line=dict(color='blue', width=2, dash='solid'),
+        name="Línea a 45º desplazada"
+    ))
+    
+    x_values = [8, -8]  # Rango de x de 8 a -8 para la línea
+    y_values = [x - 1 for x in x_values]  
+    fig.add_trace(go.Scatter(
+        x=x_values, 
+        y=y_values, 
+        mode='lines',
+        line=dict(color='blue', width=2, dash='solid'),
+        name="Línea a 45º desplazada"
     ))
 
     st.plotly_chart(fig)
